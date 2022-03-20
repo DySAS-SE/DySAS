@@ -42,15 +42,23 @@ function NavBar() {
 
 function LoginForm() {
   return (
-    <form margin="auto">
-      <TextField id="username" label="Username" margin="normal" fullWidth />
-      <TextField id="password" label="Password" margin="normal" fullWidth />
-      <Box textAlign="center">
-        <Button type="submit" variant="contained" color="primary" size="large">
-          Login
-        </Button>
-      </Box>
-    </form>
+    // TODO: center align the form (vertically)
+    <Box sx={{ mx: "auto", mt: "5em", padding: "1em", maxWidth: "30em" }}>
+      <form className="loginForm">
+        <TextField id="username" label="Username" margin="normal" fullWidth />
+        <TextField id="password" label="Password" margin="normal" fullWidth />
+        <Box textAlign="center" sx={{ padding: 2 }}>
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            size="large"
+          >
+            Login
+          </Button>
+        </Box>
+      </form>
+    </Box>
   );
 }
 
@@ -58,19 +66,14 @@ function App(props) {
   return (
     <Box>
       <NavBar />
-      <Grid
-        container
-        spacing={0}
-        direction="column"
-        alignItems="center"
-        justifyContent="center"
-      >
-        <Grid item xs={3}>
-          <LoginForm />
-        </Grid>
-      </Grid>
+      <LoginForm />
     </Box>
   );
 }
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById("root")
+);
