@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import {
   Box,
   Typography,
@@ -7,17 +7,17 @@ import {
   CardActionArea,
 } from "@mui/material";
 
-function CourseItem(props) {
+function QuizItem(props) {
   return (
-    <Card sx={{ width: "100%", mt: "1em" }} elevation="2">
+    <Card sx={{ width: "100%", mt: "1em" }}>
       <CardActionArea>
         <CardContent>
           <Typography variant="h4" component="h3" gutterBottom>
-            {props.course.name}
+            {props.quiz.name}
           </Typography>
-          <Typography variant="body1">Date : {props.course.date}</Typography>
+          <Typography variant="body1">Date : {props.quiz.date}</Typography>
           <Typography variant="body1">
-            Description : {props.course.description}
+            Description : {props.quiz.description}
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -26,39 +26,17 @@ function CourseItem(props) {
 }
 
 function CoursePage(props) {
+  const [quizItems, setQuizes] = useState([
+    { name: "Quiz 1", description: "This is a quiz", date: "7/3/22" },
+    { name: "Quiz 2", description: "This is a quiz", date: "7/3/22" },
+  ]);
+
   return (
     <Box>
-      <Typography variant="h3" gutterBottom>
+      <Typography variant="h3" component="h2" gutterBottom>
         CS330
       </Typography>
-      <CourseItem
-        course={{
-          name: "Quiz 1",
-          description: "This is a Quiz",
-          date: "7/3/22",
-        }}
-      />
-      <CourseItem
-        course={{
-          name: "Quiz 2",
-          description: "This is a Quiz",
-          date: "7/3/22",
-        }}
-      />
-      <CourseItem
-        course={{
-          name: "Quiz 3",
-          description: "This is a Quiz",
-          date: "7/3/22",
-        }}
-      />
-      <CourseItem
-        course={{
-          name: "Quiz 4",
-          description: "This is a Quiz",
-          date: "7/3/22",
-        }}
-      />
+      {quizItems.map((quiz) => (<QuizItem quiz={quiz} key={quiz.name} />))}
     </Box>
   );
 }
