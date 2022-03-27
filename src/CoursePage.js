@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import {
   Box,
   Typography,
@@ -6,6 +6,7 @@ import {
   CardContent,
   CardActionArea,
 } from "@mui/material";
+import axios from "axios";
 
 function QuizItem(props) {
   return (
@@ -16,9 +17,7 @@ function QuizItem(props) {
             {props.quiz.name}
           </Typography>
           <Typography variant="body1">Date : {props.quiz.date}</Typography>
-          <Typography variant="body1">
-            Description : {props.quiz.description}
-          </Typography>
+          <Typography variant="body1">{props.quiz.description}</Typography>
         </CardContent>
       </CardActionArea>
     </Card>
@@ -31,12 +30,20 @@ function CoursePage(props) {
     { name: "Quiz 2", description: "This is a quiz", date: "7/3/22" },
   ]);
 
+  React.useEffect(() => {
+    axios.get("http://localhost:3000" + "/quizes").then((response) => {
+      setQuizes(response.data);
+    });
+  }, []);
+
   return (
     <Box>
       <Typography variant="h3" component="h2" gutterBottom>
         CS330
       </Typography>
-      {quizItems.map((quiz) => (<QuizItem quiz={quiz} key={quiz.name} />))}
+      {quizItems.map((quiz) => (
+        <QuizItem quiz={quiz} key={quiz.name} />
+      ))}
     </Box>
   );
 }
