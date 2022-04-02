@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Box,
   Typography,
@@ -6,7 +6,6 @@ import {
   CardContent,
   CardActionArea,
 } from "@mui/material";
-import axios from "axios";
 
 function QuizItem(props) {
   return (
@@ -25,16 +24,20 @@ function QuizItem(props) {
 }
 
 function CoursePage(props) {
-  const [quizItems, setQuizes] = useState([
-    { name: "Quiz 1", description: "This is a quiz", date: "7/3/22" },
-    { name: "Quiz 2", description: "This is a quiz", date: "7/3/22" },
-  ]);
-
-  React.useEffect(() => {
-    axios.get("http://localhost:3000" + "/quizes").then((response) => {
-      setQuizes(response.data);
-    });
-  }, []);
+  const quizItems = [
+    {
+      name: "Quiz 1",
+      description: "This is a quiz",
+      date: "7/3/22",
+      id: "12ab",
+    },
+    {
+      name: "Quiz 2",
+      description: "This is a quiz",
+      date: "7/3/22",
+      id: "14ab",
+    },
+  ];
 
   return (
     <Box>
@@ -42,7 +45,7 @@ function CoursePage(props) {
         CS330
       </Typography>
       {quizItems.map((quiz) => (
-        <QuizItem quiz={quiz} key={quiz.name} />
+        <QuizItem quiz={quiz} key={quiz.id} />
       ))}
     </Box>
   );
