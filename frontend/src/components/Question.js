@@ -28,7 +28,12 @@ class Question extends React.Component {
   handleChange(event) {
     console.log("change!");
     const value = event.target.value;
-    const nextState = Object.assign({}, this.state);
+    const nextState = {
+      a: false,
+      b: false,
+      c: false,
+      d: false,
+    };
     nextState[value] = true;
     this.setState(nextState);
   }
@@ -83,7 +88,12 @@ class Question extends React.Component {
                   onChange={this.handleChange}
                 ></FormControlLabel>
               </RadioGroup>
-              <Box sx={{ padding: "0.5em", gap: "0.5em" }}>
+              <Box
+                sx={{
+                  padding: "0.5em",
+                  gap: "0.5em",
+                }}
+              >
                 <Button
                   sx={{ padding: "0.5em", mt: "0.25em" }}
                   type="clear"
@@ -101,6 +111,17 @@ class Question extends React.Component {
                   className="action-btns"
                 >
                   Next
+                </Button>
+                <Button
+                  sx={{ padding: "0.5em", mt: "0.25em" }}
+                  type="submit"
+                  variant="outlined"
+                  onClick={() => this.handleSubmit()}
+                  className="action-btns"
+                  color="warning"
+                  disabled
+                >
+                  Finish
                 </Button>
               </Box>
             </FormControl>

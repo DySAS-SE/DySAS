@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import DashBoard from "./components/Dashboard";
 import CoursePage from "./components/CoursePage";
 import Question from "./components/Question";
+import Result from "./components/Result";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,6 +17,7 @@ ReactDOM.render(
           <Route path="dashboard" element={<DashBoard />} />
           <Route path="coursepage" element={<CoursePage />} />
           <Route path="question" element={<Question />} />
+          <Route path="result" element={<Result />} />
         </Route>
         {/* No match route */}
         <Route
