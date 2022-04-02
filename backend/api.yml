@@ -1,0 +1,32 @@
+openapi: "3.0.2"
+info:
+  title: DySAS
+  version: "1.0"
+  license:
+    name: GNU General Public License v3.0
+  description: DySAS API
+servers:
+  - url: localhost:5000
+paths:
+  /question:
+    get:
+      description: Get all questions
+      responses:
+        "200":
+          description: OK
+    post:
+      description: Add new question to the database
+      responses:
+        "200":
+          description: OK
+  /question/{id}:
+    put:
+      description: Update question by id
+      responses:
+        "200":
+          description: OK
+    delete:
+      description: Delete question by id
+      responses:
+        "200":
+          description: OK
