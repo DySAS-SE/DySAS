@@ -50,7 +50,9 @@ class Question extends React.Component {
     const options = this.state;
     return (
       <Box>
-        <Typography variant="h3">CS330 | Quiz 1</Typography>
+        <Typography variant="h3" gutterbottom>
+          CS330 | Quiz 1
+        </Typography>
         <Card sx={{ mt: "2em", padding: "2em" }}>
           <Typography variant="h6">
             Q1) What is the probability that the result of a coin toss is heads?

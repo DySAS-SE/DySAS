@@ -7,6 +7,7 @@ import DashBoard from "./components/Dashboard";
 import CoursePage from "./components/CoursePage";
 import Question from "./components/Question";
 import Result from "./components/Result";
+import NewQuiz from "./components/NewQuiz";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -18,6 +19,7 @@ ReactDOM.render(
           <Route path="coursepage" element={<CoursePage />} />
           <Route path="question" element={<Question />} />
           <Route path="result" element={<Result />} />
+          <Route path="newquiz" element={<NewQuiz />} />
         </Route>
         {/* No match route */}
         <Route

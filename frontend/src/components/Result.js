@@ -204,8 +204,10 @@ function Result() {
   ];
   return (
     <Box>
-      <Typography variant="h3">CS330 | Quiz 1</Typography>
-      <Box sx={{ mt: "2em", padding: "2em" }}>
+      <Typography variant="h3" gutterbottom>
+        CS330 | Quiz 1
+      </Typography>
+      <Box sx={{ padding: "2em" }}>
         {data.map((tab) => (
           <ResponseTab response={tab} key={tab.questionId} />
         ))}

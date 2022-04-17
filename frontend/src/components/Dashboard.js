@@ -33,7 +33,7 @@ function Dashboard() {
   ];
   return (
     <Box>
-      <Typography variant="h3" component="h3" gutterBottom>
+      <Typography variant="h3" gutterBottom>
         Courses
       </Typography>
       {courseItems.map((course) => (

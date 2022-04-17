@@ -21,7 +21,7 @@ function NavBar() {
           sx={{ mr: 2 }}
         />
         <Typography
-          variant="h6"
+          variant="h5"
           component="h1"
           color="inherit"
           sx={{ flexGrow: 1 }}
