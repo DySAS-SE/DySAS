@@ -3,8 +3,9 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const mongodb = require("mongodb");
-
+var cors = require("cors");
 const app = express();
+app.use(cors());
 
 require("dotenv").config();
 
@@ -24,15 +25,15 @@ dbClient
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-
-app.use("/question", require("./routes/question"));
-
 app.use(function (err, req, res, next) {
   res.status(422).send({ error: err.message });
   next(err);
 });
+
+app.use("/question", require("./routes/question"));
+app.use("/login", require("./routes/login"));
+// app.use("/dashboard", require("./routes/dashboard"));
 
 module.exports = app;
