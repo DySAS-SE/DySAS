@@ -15,7 +15,7 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<Template />}>
           <Route path="login" element={<Login />} />
-          <Route path="dashboard" element={<DashBoard />} />
+          <Route path="dashboard" element={<DashBoard />} name="dashboard" />
           <Route path="coursepage" element={<CoursePage />} />
           <Route path="question" element={<Question />} />
           <Route path="result" element={<Result />} />

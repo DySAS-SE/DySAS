@@ -24,23 +24,35 @@ function CourseItem(props) {
   );
 }
 
-function Dashboard() {
-  const courseItems = [
-    { name: "Course 1", description: "This is a course", id: "15bh" },
-    { name: "Course 2", description: "This is a course", id: "19kh" },
-    { name: "Course 3", description: "This is a course", id: "16bl" },
-    { name: "Course 4", description: "This is a course", id: "15hu" },
-  ];
-  return (
-    <Box>
-      <Typography variant="h3" gutterBottom>
-        Courses
-      </Typography>
-      {courseItems.map((course) => (
-        <CourseItem course={course} key={course.id}></CourseItem>
-      ))}
-    </Box>
-  );
+class Dashboard extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {
+    const query =
+      "http://localhost:5000/dashboard?id=" + this.props.location.state.id;
+    let res = fetch(query);
+  }
+
+  render() {
+    const courseItems = [
+      { name: "Course 1", description: "This is a course", id: "15bh" },
+      { name: "Course 2", description: "This is a course", id: "19kh" },
+      { name: "Course 3", description: "This is a course", id: "16bl" },
+      { name: "Course 4", description: "This is a course", id: "15hu" },
+    ];
+    return (
+      <Box>
+        <Typography variant="h3" gutterBottom>
+          Courses
+        </Typography>
+        {courseItems.map((course) => (
+          <CourseItem course={course} key={course.id}></CourseItem>
+        ))}
+      </Box>
+    );
+  }
 }
 
 export default Dashboard;
